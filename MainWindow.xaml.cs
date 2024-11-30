@@ -11,6 +11,7 @@ namespace LogViewer
         public MainWindow()
         {
             InitializeComponent();
+            _logContent = "";
         }
 
         // Обработчик кнопки "Открыть лог"
