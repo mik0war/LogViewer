@@ -1,0 +1,34 @@
+﻿<Window x:Class="LogViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LogViewer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Верхняя панель с кнопками -->
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <Button Content="Открыть лог" Width="100" Margin="5" Click="OpenLog_Click" />
+            <Button Content="Сбросить фильтр" Width="120" Margin="5" Click="ResetFilter_Click" />
+        </StackPanel>
+
+        <!-- Панель фильтров -->
+        <StackPanel Orientation="Horizontal" Margin="5" Grid.Row="1">
+            <TextBlock Text="Фильтр:" VerticalAlignment="Center" Margin="5" />
+            <TextBox x:Name="FilterTextBox" Width="300" Margin="5" />
+            <Button Content="Применить фильтр" Width="120" Margin="5" Click="ApplyFilter_Click" />
+        </StackPanel>
+
+        <!-- Текстовое поле для отображения логов -->
+        <ScrollViewer Grid.Row="2" Margin="5">
+            <TextBox x:Name="LogTextBox" FontFamily="Consolas" FontSize="12" TextWrapping="Wrap" IsReadOnly="True" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+        </ScrollViewer>
+    </Grid>
+</Window>
